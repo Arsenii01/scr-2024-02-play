@@ -12,7 +12,7 @@ trait PhoneRecordRepository {
   def listWithAddressCount(): List[(String, Long)]
   def insert(phoneRecord: PhoneRecord): Unit
   def insert(address: Address): Unit
-  def update(phoneRecord: PhoneRecord): Unit
+//  def update(phoneRecord: PhoneRecord): Unit
   def delete(id: String): Unit
 }
 
@@ -54,8 +54,8 @@ class PhoneRecordRepositoryImpl extends PhoneRecordRepository{
   override def insert(address: Address): Unit =
     transaction(addresses.insert(address))
 
-  override def update(phoneRecord: PhoneRecord): Unit =
-    transaction(phoneRecords.update(phoneRecord))
+//  override def update(phoneRecord: PhoneRecord): Unit =
+//    transaction(phoneRecords.update(phoneRecord))
 
   override def delete(id: String): Unit =
     transaction(phoneRecords.deleteWhere(_.id === id))

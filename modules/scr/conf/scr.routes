@@ -6,7 +6,7 @@ GET /action4                   controllers.IndexController.action4
 GET /action5                   controllers.IndexController.action5
 GET /action6                   controllers.IndexController.action6
 GET /action7/:number           controllers.IndexController.action7(number: Int)
-GET /action8                   controllers.IndexController.action8(number: Int ?= 0)
+GET /action8                   controllers.IndexController.action8(number1: Int ?= 0, number2: Int ?= 0)
 GET /action9                   controllers.IndexController.action9
 GET /action10                  controllers.IndexController.action10
 GET /action11                  controllers.IndexController.action11
@@ -21,7 +21,14 @@ POST /login                    controllers.IndexController.loginFormSubmit()
 
 # Product routes
 
-GET  /products/list            @controllers.ProductController.list
+GET  /products                 @controllers.ProductController.listProducts(title: Option[String])
+POST /products                 @controllers.ProductController.insertProduct
+DELETE /products/:id           @controllers.ProductController.deleteProduct(id: String)
+
+GET /product-items             @controllers.ProductController.listProductItems
+POST /product-items            @controllers.ProductController.insertProductItem
+PATCH /product-items          @controllers.ProductController.updateProductItem
+DELETE /product-items/:id      @controllers.ProductController.deleteProductItem(id: String)
 
 # PhoneBook
 

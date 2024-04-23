@@ -15,6 +15,10 @@ object Foo{
 
 object IndexController extends Authorization {
 
+  def index = Action {
+    Ok
+  }
+
   def action1 = Action{
     Ok
   }
@@ -43,8 +47,9 @@ object IndexController extends Authorization {
     Ok(s"The number is $number")
   }
 
-  def action8(number: Int) = Action{
-    Ok(s"The number is $number")
+  def action8(number1: Int, number2: Int) = Action{
+    val sum = number1 + number2
+    Ok(s"$number1 + $number2 = $sum")
   }
 
   def action9 = Action{
@@ -110,9 +115,7 @@ object IndexController extends Authorization {
     Ok(jsValue)
   }
 
-  def index = Action{
-    Ok(views.html.index())
-  }
+
 
   val mapping: Mapping[(String, String)] = Forms.tuple(
     "email" -> email,
